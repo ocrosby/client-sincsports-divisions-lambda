@@ -4,11 +4,11 @@
   "description": "A lambda function that retrieves sincsports divisions.",
   "nyc": {
     "check-coverage": true,
-    "per-file": false,
-    "lines": 0,
-    "statements": 0,
-    "functions": 0,
-    "branches": 0,
+    "per-file": true,
+    "lines": 43,
+    "statements": 43,
+    "functions": 20,
+    "branches": 57,
     "include": [
       "src/**/*.js"
     ],
@@ -63,6 +63,7 @@
   },
   "homepage": "https://github.com/ocrosby/client-sincsports-divisions-lambda#readme",
   "dependencies": {
+    "bluebird": "^3.5.1",
     "cheerio": "^1.0.0-rc.2"
   },
   "devDependencies": {
@@ -86,6 +87,7 @@
     "mocha-multi-reporters": "^1.1.7",
     "nyc": "^11.4.1",
     "run-sequence": "^2.2.1",
-    "should": "^13.2.1"
+    "should": "^13.2.1",
+    "sinon": "^4.4.2"
   }
 }

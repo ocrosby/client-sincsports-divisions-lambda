@@ -26,4 +26,24 @@ describe('index', () => {
             expect(index.getTid(undefined)).to.equal('NCFL');
         });
     });
+
+    describe('getSub', () => {
+        it('returns "3" when given "fall"', () => {
+            expect(index.getSub('fall')).to.equal('3');
+        });
+
+        it('returns "3" when given nothing', () => {
+            expect(index.getSub()).to.equal('3');
+        });
+
+        it('returns "2" when given "spring"', () => {
+            expect(index.getSub('spring')).to.equal('2');
+        });
+    });
+
+    describe('generatePath', () => {
+        it('returns "/TTSchedules.aspx?tid=NCFL&tab=3&sub=3&sTid=NCFL&sYear=2017" when given "fall" 2017', () => {
+            expect(index.generatePath('fall', 2017)).to.equal('/TTSchedules.aspx?tid=NCFL&tab=3&sub=3&sTid=NCFL&sYear=2017');
+        });
+    });
 });
