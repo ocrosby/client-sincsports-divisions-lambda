@@ -103,7 +103,9 @@ exports.createDivision = (item, gender) => {
     anchor = item.children('a');
 
     if (anchor) {
-        if (url = anchor.attr('href')) {
+        url = anchor.attr('href');
+
+        if (url) {
             id = querystring.parse(url).div;
         } else {
             id = url = '?';
@@ -137,7 +139,7 @@ exports.handler = (event, context, callback) => {
             try {
                 $ = cheerio.load(html, CheerioOptions);
             } catch (error) {
-                deferred.reject(error);
+                callback(error);
             }
 
             promises = [];
@@ -161,10 +163,10 @@ exports.handler = (event, context, callback) => {
 
             Promise.all(promises)
                 .then(function (data) {
-                    deferred.resolve(data);
+                    callback(null, data);
                 })
                 .fail(function (error) {
-                    deferred.reject(error);
+                    callback(error);
                 });
 
         })

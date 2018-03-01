@@ -42,8 +42,9 @@ describe('index', () => {
     });
 
     describe('generatePath', () => {
-        it('returns "/TTSchedules.aspx?tid=NCFL&tab=3&sub=3&sTid=NCFL&sYear=2017" when given "fall" 2017', () => {
-            expect(index.generatePath('fall', 2017)).to.equal('/TTSchedules.aspx?tid=NCFL&tab=3&sub=3&sTid=NCFL&sYear=2017');
+        it('returns the expected path when given "fall" 2017', () => {
+            const expected = '/TTSchedules.aspx?tid=NCFL&tab=3&sub=3&sTid=NCFL&sYear=2017';
+            expect(index.generatePath('fall', 2017)).to.equal(expected);
         });
     });
 
