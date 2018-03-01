@@ -1,6 +1,7 @@
 const http = require('http');
 const bluebird = require('bluebird');
 const cheerio = require('cheerio');
+const querystring = require('querystring');
 
 global.Promise = bluebird.Promise;
 
@@ -93,14 +94,30 @@ exports.getHTML = (season, year) => {
 };
 
 exports.createDivision = (item, gender) => {
-    let division = {};
+    let id;
+    let url;
+    let text;
+    let anchor;
 
-    division.name = item.text();
-    division.url = item.children('a').attr('href') || '?';
-    division.id = querystring.parse(item.children('a').attr('href')).div || '?';
-    division.gender = gender;
+    text = item.text();
+    anchor = item.children('a');
 
-    return division;
+    if (anchor) {
+        if (url = anchor.attr('href')) {
+            id = querystring.parse(url).div;
+        } else {
+            id = url = '?';
+        }
+    } else {
+        id = url = '?';
+    }
+
+    return {
+        name: text,
+        url: url,
+        id: id,
+        gender: gender
+    };
 };
 
 exports.handler = (event, context, callback) => {

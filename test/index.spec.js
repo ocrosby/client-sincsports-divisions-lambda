@@ -1,5 +1,5 @@
 const index = require('../src/index');
-
+const sinon = require('sinon');
 const chai = require('chai');
 
 global.expect = chai.expect;
@@ -45,5 +45,9 @@ describe('index', () => {
         it('returns "/TTSchedules.aspx?tid=NCFL&tab=3&sub=3&sTid=NCFL&sYear=2017" when given "fall" 2017', () => {
             expect(index.generatePath('fall', 2017)).to.equal('/TTSchedules.aspx?tid=NCFL&tab=3&sub=3&sTid=NCFL&sYear=2017');
         });
+    });
+
+    describe('createDivision', () => {
+
     });
 });
