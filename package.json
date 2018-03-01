@@ -1,27 +1,27 @@
 {
-  "name": "client-sincsports-divisions-lambda",
-  "version": "1.0.0",
-  "description": "A lambda function that retrieves sincsports divisions.",
-  "main": "index.js",
-  "scripts": {
-    "test": "gulp test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ocrosby/client-sincsports-divisions-lambda.git"
-  },
-  "keywords": [
-    "SincSports",
-    "Client",
-    "Divisions"
-  ],
-  "author": "Omar Crosby",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ocrosby/client-sincsports-divisions-lambda/issues"
-  },
-  "homepage": "https://github.com/ocrosby/client-sincsports-divisions-lambda#readme",
-  "dependencies": {
-    "cheerio": "^1.0.0-rc.2"
-  }
+    "name": "client-sincsports-divisions-lambda",
+    "version": "1.0.0",
+    "description": "A lambda function that retrieves sincsports divisions.",
+    "main": "index.js",
+    "scripts": {
+        "test": "gulp test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ocrosby/client-sincsports-divisions-lambda.git"
+    },
+    "keywords": [
+        "SincSports",
+        "Client",
+        "Divisions"
+    ],
+    "author": "Omar Crosby",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/ocrosby/client-sincsports-divisions-lambda/issues"
+    },
+    "homepage": "https://github.com/ocrosby/client-sincsports-divisions-lambda#readme",
+    "dependencies": {
+        "cheerio": "^1.0.0-rc.2"
+    }
 }
