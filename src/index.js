@@ -127,11 +127,11 @@ exports.handler = (event, context, callback) => {
 
             // Add the Boys Divisions
             boysPromises = $(BoysSelector).map(function () {
-                return createDivision($(this), 'male', me.logger);
+                return exports.createDivision($(this), 'male', me.logger);
             }).toArray();
 
             girlsPromises = $(GirlsSelector).map(function () {
-                return createDivision($(this), 'female', me.logger);
+                return exports.createDivision($(this), 'female', me.logger);
             }).toArray();
 
             for (i = 0; i < boysPromises.length; i++) {
