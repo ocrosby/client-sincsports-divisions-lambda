@@ -42,7 +42,7 @@ files.javascript = mergeArguments(files.src, files.test);
 files.generated = mergeArguments( directories, files.xml, `${details.name}*.*`);
 
 gulp.task('clean', function () {
-    return gulp.src(['build', 'dist'])
+    return gulp.src(['build', 'dist', '.nyc_output', 'coverage', 'xunit.xml', 'checkstyle.xml'])
         .pipe(clean());
 });
 
