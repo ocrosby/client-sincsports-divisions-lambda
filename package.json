@@ -5,8 +5,8 @@
   "nyc": {
     "check-coverage": true,
     "per-file": true,
-    "lines": 40,
-    "statements": 40,
+    "lines": 39,
+    "statements": 39,
     "functions": 18,
     "branches": 44,
     "include": [
