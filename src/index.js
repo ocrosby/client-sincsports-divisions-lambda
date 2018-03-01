@@ -92,6 +92,17 @@ exports.getHTML = (season, year) => {
     });
 };
 
+exports.createDivision = (item, gender) => {
+    let division = {};
+
+    division.name = item.text();
+    division.url = item.children('a').attr('href') || '?';
+    division.id = querystring.parse(item.children('a').attr('href')).div || '?';
+    division.gender = gender;
+
+    return division;
+};
+
 exports.handler = (event, context, callback) => {
     const season = event.season || 'fall';
     const year = event.year || '2017';
