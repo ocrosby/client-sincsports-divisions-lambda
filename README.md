@@ -1,6 +1,6 @@
 # Overview
 
-This repository contains an AWS Lambda function capable of returning a JSON representation of SincSports divisions by season and year.
+This repository contains an AWS Lambda function capable of returning a JSON representation of SincSports youth Soccer divisions by season and year.
 
 This is intended to be an educational project so don't expect much. :)
 
