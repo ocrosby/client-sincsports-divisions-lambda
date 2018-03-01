@@ -1,2 +1,9 @@
 .idea
 node_modules
+build
+dist
+*.log
+.nyc_output
+coverage
+checkstyle.xml
+xunit.xml

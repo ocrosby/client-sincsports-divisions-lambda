@@ -2,9 +2,50 @@
   "name": "client-sincsports-divisions-lambda",
   "version": "1.0.0",
   "description": "A lambda function that retrieves sincsports divisions.",
-  "main": "index.js",
+  "nyc": {
+    "check-coverage": true,
+    "per-file": false,
+    "lines": 0,
+    "statements": 0,
+    "functions": 0,
+    "branches": 0,
+    "include": [
+      "src/**/*.js"
+    ],
+    "exclude": [
+      "test/**/*.spec.js"
+    ],
+    "reporter": [
+      "lcov",
+      "cobertura"
+    ],
+    "cache": true,
+    "all": true,
+    "report-dir": "./coverage",
+    "watermarks": {
+      "lines": [
+        80,
+        95
+      ],
+      "functions": [
+        80,
+        95
+      ],
+      "branches": [
+        80,
+        95
+      ],
+      "statements": [
+        80,
+        95
+      ]
+    }
+  },
+  "main": "src/index.js",
   "scripts": {
-    "test": "gulp test"
+    "clean": "gulp clean",
+    "lint": "gulp lint",
+    "test": "nyc mocha ./test/**/*.spec.js --reporter mocha-multi-reporters --reporter-options configFile=mocha-config.json"
   },
   "repository": {
     "type": "git",
@@ -33,10 +74,18 @@
     "gulp": "^3.9.1",
     "gulp-clean": "^0.4.0",
     "gulp-install": "^1.1.0",
+    "gulp-jshint": "^2.1.0",
+    "gulp-jsonlint": "^1.2.1",
     "gulp-mocha": "^5.0.0",
     "gulp-zip": "^4.1.0",
+    "jshint": "^2.9.5",
+    "jshint-checkstyle-file-reporter": "0.0.1",
+    "merge-stream": "^1.0.1",
     "mocha": "^5.0.1",
+    "mocha-junit-reporter": "^1.17.0",
+    "mocha-multi-reporters": "^1.1.7",
     "nyc": "^11.4.1",
+    "run-sequence": "^2.2.1",
     "should": "^13.2.1"
   }
 }
