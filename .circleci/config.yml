@@ -36,7 +36,8 @@ jobs:
           # run tests!
           - run: yarn test
 
-          - package: gulp package
+          # Create the deployment package
+          - run: gulp package
 
 
     deployment:
