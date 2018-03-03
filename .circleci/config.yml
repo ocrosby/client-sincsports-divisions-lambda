@@ -33,15 +33,14 @@ jobs:
                     - node_modules
                 key: v1-dependencies-{{ checksum "package.json" }}
 
+            # validate syntax
+            - run: yarn lint
+
             # run tests!
             - run: yarn test
 
             # Create the deployment package
             - run: yarn package
 
-deployment:
-    production:
-        branch: master
-        commands:
-            - aws s3 sync dist s3://sincsports/lambda/ --delete
-
+            # Deploy to S3
+            - run: aws s3 sync dist s3://sincsports/lambda/ --delete
