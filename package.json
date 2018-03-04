@@ -5,10 +5,10 @@
   "nyc": {
     "check-coverage": true,
     "per-file": false,
-    "lines": 20,
-    "statements": 20,
-    "functions": 18,
-    "branches": 27,
+    "lines": 0,
+    "statements": 0,
+    "functions": 0,
+    "branches": 0,
     "include": [
       "src/**/*.js"
     ],
@@ -67,7 +67,8 @@
     "bluebird": "^3.5.1",
     "cheerio": "^1.0.0-rc.2",
     "querystring": "^0.2.0",
-    "request": "^2.83.0"
+    "request": "^2.83.0",
+    "sincsports-service": "git+https://git@github.com/ocrosby/sincsports-service.git"
   },
   "devDependencies": {
     "chai": "^4.1.2",

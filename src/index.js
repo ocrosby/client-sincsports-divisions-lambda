@@ -1,4 +1,4 @@
-const SincSportsService = require('./SincSportsService.js');
+const SincSportsService = require('sincsports-service');
 
 exports.handler = (event, context, callback) => {
     const season = event.season || 'fall';
@@ -7,9 +7,7 @@ exports.handler = (event, context, callback) => {
     let service;
 
     try {
-        service = new SincSportsService();
-
-        service.getDivisions(season, year)
+        SincSportsService.getDivisions(season, year)
             .then((divisions) => {
                 callback(null, divisions);
             })

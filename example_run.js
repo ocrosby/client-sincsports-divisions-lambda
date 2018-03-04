@@ -14,7 +14,7 @@ index.handler(event, context, (err, divisions) => {
     } else {
         for (i = 0, length = divisions.length ; i < length ; i++) {
             currentDivision = divisions[i];
-            console.log(currentDivision);
+            console.log(JSON.stringify(currentDivision));
         }
 
         console.log(`There are ${length} divisions.`);
