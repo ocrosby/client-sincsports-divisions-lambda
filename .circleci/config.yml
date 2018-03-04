@@ -44,4 +44,4 @@ jobs:
 
             # Deploy to S3
             - run: sudo apt-get -y -qq install awscli
-            - run: aws s3 sync dist s3://sincsports/lambda/ --delete
+            - run: aws s3 sync dist s3://sincsports/lambda/
