@@ -1,8 +1,10 @@
 const SincSportsService = require('sincsports-service');
+const Helpers = require('lambda-helpers');
 
 exports.handler = (event, context, callback) => {
     let season;
     let year;
+    let responder = Helpers.GatewayResponder.Create(callback);
 
     console.log(`Received event:\n${JSON.stringify(event)}`);
 
@@ -14,29 +16,14 @@ exports.handler = (event, context, callback) => {
     try {
         SincSportsService.getDivisions(season, year)
             .then((divisions) => {
-                callback(null, {
-                    "isBase64Encoded": false,
-                    "statusCode": 200,
-                    "headers": {},
-                    "body": JSON.stringify(divisions)
-                });
+                responder.success(divisions);
             })
             .catch((err) => {
-                callback(null, {
-                    "isBase64Encoded": false,
-                    "statusCode": 500,
-                    "headers": {},
-                    "body": JSON.stringify({ message: err.mesage })
-                });
+                responder.error(err);
             });
 
     } catch(err) {
-        callback(null, {
-            "isBase64Encoded": false,
-            "statusCode": 500,
-            "headers": {},
-            "body": JSON.stringify({ message: err.mesage })
-        });
+        responder.error(err);
     }
 };
 
