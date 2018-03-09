@@ -9,14 +9,29 @@ exports.handler = (event, context, callback) => {
     try {
         SincSportsService.getDivisions(season, year)
             .then((divisions) => {
-                callback(null, divisions);
+                callback(null, {
+                    "isBase64Encoded": false,
+                    "statusCode": 200,
+                    "headers": {},
+                    "body": JSON.stringify(divisions)
+                });
             })
             .catch((err) => {
-                callback(err);
+                callback(null, {
+                    "isBase64Encoded": false,
+                    "statusCode": 500,
+                    "headers": {},
+                    "body": JSON.stringify({ message: err.mesage })
+                });
             });
 
     } catch(err) {
-        callback(err);
+        callback(null, {
+            "isBase64Encoded": false,
+            "statusCode": 500,
+            "headers": {},
+            "body": JSON.stringify({ message: err.mesage })
+        });
     }
 };
 
