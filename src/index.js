@@ -8,22 +8,31 @@ exports.handler = (event, context, callback) => {
     let year;
 
     try {
-        console.log(`Received event:\n${JSON.stringify(event)}`);
+        console.log(`Received event: ${JSON.stringify(event, null, 2)}`);
+        console.log(`context: ${JSON.stringify(context, null, 2)}`);
+        console.log(`pathParameters: ${JSON.stringify(event.pathParameters, null, 2)}`);
 
         season = event.pathParameters.season;
         year = event.pathParameters.year;
 
-        console.log(`Retrieving SincSports divisions for the ${season} of ${year} ...`);
+        console.log(`season = ${season}`);
+        console.log(`year = ${year}`);
 
         SincSportsService.getDivisions(season, year)
             .then((divisions) => {
+                console.log(`divisions: ${JSON.stringify(divisions, null, 2)}`);
+
                 responder.success(divisions);
             })
             .catch((err) => {
+                console.error(err);
+
                 responder.error(err);
             });
 
     } catch(err) {
+        console.error(err);
+
         responder.error(err);
     }
 };
