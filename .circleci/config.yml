@@ -42,6 +42,11 @@ jobs:
             # Create the deployment package
             - run: yarn package
 
-            # Deploy to S3
+            # Install the AWS CLI
             - run: sudo apt-get -y -qq install awscli
+
+            # Deploy to S3
             - run: aws s3 sync dist s3://sincsports/lambda/
+
+            # Update Lambda Function Code
+            - run: aws lambda update-function-code --function-name client-sincsports-divisions-lambda --s3-bucket sincsports --s3-key lambda/client-sincsports-divisions-lambda.zip --publish
