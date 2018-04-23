@@ -15,8 +15,8 @@ exports.handler = (event, context, callback) => {
         season = event.pathParameters.season;
         year = event.pathParameters.year;
 
-        console.log(`season = ${season}`);
-        console.log(`year = ${year}`);
+        console.log(`season=${season}`);
+        console.log(`year=${year}`);
 
         SincSportsService.getDivisions(season, year)
             .then((divisions) => {
