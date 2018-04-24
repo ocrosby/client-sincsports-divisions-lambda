@@ -15,7 +15,7 @@ exports.handler = (event, context, callback) => {
 
         season = event.pathParameters.season;
         year = event.pathParameters.year;
-        gender = event.pathParameters.year;
+        gender = event.pathParameters.gender;
 
         console.log(`season=${season}`);
         console.log(`year=${year}`);
