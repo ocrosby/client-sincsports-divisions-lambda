@@ -6,6 +6,7 @@ exports.handler = (event, context, callback) => {
 
     let season;
     let year;
+    let gender;
 
     try {
         console.log(`Received event: ${JSON.stringify(event, null, 2)}`);
@@ -14,11 +15,12 @@ exports.handler = (event, context, callback) => {
 
         season = event.pathParameters.season;
         year = event.pathParameters.year;
+        gender = event.pathParameters.year;
 
         console.log(`season=${season}`);
         console.log(`year=${year}`);
 
-        SincSportsService.getDivisions(season, year)
+        SincSportsService.getDivisions(season, year, gender)
             .then((divisions) => {
                 console.log(`divisions: ${JSON.stringify(divisions, null, 2)}`);
 
