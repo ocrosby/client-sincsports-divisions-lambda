@@ -19,6 +19,7 @@ exports.handler = (event, context, callback) => {
 
         console.log(`season=${season}`);
         console.log(`year=${year}`);
+        console.log(`gender=${gender}`);
 
         SincSportsService.getDivisions(season, year, gender)
             .then((divisions) => {
